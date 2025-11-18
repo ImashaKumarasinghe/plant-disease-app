@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Disease Detection</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+
+            /* Your background image with NO blur */
+            background: url("{{ url_for('static', filename='fern-1250903_640.jpg') }}") no-repeat center center fixed;
+background-size: cover;
+
+
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 420px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.35); /* slight transparency */
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            color: #1b5e20;
+            backdrop-filter: none; /* no blur */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            background: #ffffff;
+            border: none;
+            font-size: 15px;
+        }
+
+        button {
+            background: #2e7d32;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>🌿 Plant Disease Detector</h1>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Analyze Image</button>
+    </form>
+</div>
+
+</body>
+</html>

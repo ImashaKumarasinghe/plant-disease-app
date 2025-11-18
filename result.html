@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+
+            /* Your image as background */
+            background: url("{{ url_for('static', filename='fern-1250903_640.jpg') }}") no-repeat center center fixed;
+background-size: cover;
+
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 450px;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 30px;
+            border-radius: 20px;
+            color: #1b5e20;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 6px 0;
+        }
+
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            background: #2e7d32;
+            padding: 12px 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        a:hover {
+            background: #1b5e20;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="card">
+    <h1>🌱 Result: {{ label }}</h1>
+
+    <h3>📊 Prediction Probabilities</h3>
+    {% for p in probs %}
+        <p>{{ p|round(4) }}</p>
+    {% endfor %}
+
+    <a href="/">🔙 Go Back</a>
+</div>
+
+</body>
+</html>
